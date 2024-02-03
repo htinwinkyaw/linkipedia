@@ -2,7 +2,7 @@ import Link from "next/link";
 import NavItems from "./NavItems";
 import NavUser from "./NavUser";
 import React from "react";
-import ThemeController from "../ThemeController";
+import ThemeController from "./ThemeController";
 
 const Navbar = () => {
   return (

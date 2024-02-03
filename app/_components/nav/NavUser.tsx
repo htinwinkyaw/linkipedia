@@ -24,16 +24,12 @@ const NavUser = () => {
         className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
       >
         <li>
-          <Link href="/" className="justify-between">
-            Profile
-            <span className="badge">New</span>
+          <Link href="/signin" className="justify-between">
+            Sign In
           </Link>
         </li>
         <li>
-          <Link href="/">Settings</Link>
-        </li>
-        <li>
-          <Link href="/">Logout</Link>
+          <Link href="/signup">Sign Up</Link>
         </li>
       </ul>
     </div>
