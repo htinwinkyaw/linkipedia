@@ -12,7 +12,7 @@ const NavUser = () => {
       >
         <div className="w-10">
           <Image
-            alt="Tailwind CSS Navbar component"
+            alt="User Image"
             src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
             className="rounded-full"
             fill
