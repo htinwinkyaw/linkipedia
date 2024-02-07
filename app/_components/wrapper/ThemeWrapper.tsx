@@ -6,6 +6,7 @@ import useTheme from "@/app/_hooks/useTheme";
 interface ThemeWrapperProps {
   children: React.ReactNode;
 }
+
 const ThemeWrapper: React.FC<ThemeWrapperProps> = ({ children }) => {
   const { theme } = useTheme();
 

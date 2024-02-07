@@ -6,6 +6,8 @@ import prisma from "./prismadb";
 import userServices from "../_services/userServices";
 
 const authOptions: AuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
+  adapter: PrismaAdapter(prisma),
   providers: [
     Facebook({
       clientId: process.env.FACEBOOK_CLIENT_ID as string,
@@ -34,9 +36,7 @@ const authOptions: AuthOptions = {
       },
     }),
   ],
-  adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
-  secret: process.env.NEXT_AUTH_SECRET,
   debug: process.env.NODE_ENV === "production",
 };
 

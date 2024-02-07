@@ -1,13 +1,18 @@
+"use client";
+
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import React, { useState } from "react";
 
 import CustomButton from "@/app/_components/ui/CustomButton";
 import CustomInput from "@/app/_components/ui/CustomInput";
 import Link from "next/link";
+import React from "react";
 import { signInWithProvider } from "@/app/_utils/signInWithProvider";
+import useLoading from "@/app/_hooks/useLoading";
+import { useRouter } from "next/navigation";
 
 const SignInForm = () => {
-  const [loading, setLoading] = useState(false);
+  const { setLoading } = useLoading();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -17,6 +22,7 @@ const SignInForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
     signInWithProvider("credentials", { ...data, redirect: false });
+    router.push("/");
     setLoading(false);
   };
 

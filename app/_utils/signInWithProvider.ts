@@ -1,6 +1,7 @@
 import { SignInOptions, signIn } from "next-auth/react";
 
 import { BuiltInProviderType } from "next-auth/providers/index";
+import toast from "react-hot-toast";
 
 export const signInWithProvider = (
   name: BuiltInProviderType,
@@ -9,10 +10,11 @@ export const signInWithProvider = (
   signIn(name, { ...options })
     .then((callback) => {
       if (callback?.ok) {
-        console.log("Signed In.");
+        toast.success("signed in.");
       }
     })
     .catch((err) => {
       console.log(err);
+      toast.error("failed to sign in.");
     });
 };

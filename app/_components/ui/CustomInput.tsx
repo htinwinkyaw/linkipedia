@@ -1,4 +1,9 @@
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormRegister,
+  UseFormReset,
+} from "react-hook-form";
 
 import React from "react";
 
@@ -40,7 +45,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         placeholder={placeholder}
         autoComplete="off"
         disabled={disabled}
-        className={`input input-bordered w-full max-w-xs rounded-md 
+        className={`input input-bordered w-full rounded-md 
           placeholder:text-sm placeholder:opacity-70 
           ${errors[id] && "input-error border-error"}`}
       />

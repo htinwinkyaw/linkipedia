@@ -1,8 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
-const NavUser = () => {
+interface NavUserProps {
+  user: User | null;
+}
+
+const NavUser: React.FC<NavUserProps> = ({ user }) => {
+  const router = useRouter();
+
   return (
     <div className="dropdown dropdown-end">
       <div
@@ -23,14 +35,38 @@ const NavUser = () => {
         tabIndex={0}
         className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
       >
-        <li>
-          <Link href="/signin" className="justify-between">
-            Sign In
-          </Link>
-        </li>
-        <li>
-          <Link href="/signup">Sign Up</Link>
-        </li>
+        {!user && (
+          <>
+            <li>
+              <Link href="/signin" className="justify-between">
+                Sign In
+              </Link>
+            </li>
+            <li>
+              <Link href="/signup">Sign Up</Link>
+            </li>
+          </>
+        )}
+        {user && (
+          <li>
+            {/* <Link href="/signup">Sign Out</Link> */}
+            <button
+              onClick={() => {
+                signOut()
+                  .then(() => {
+                    router.push("/signin");
+                    toast.success("signed out.");
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                    toast.error("failed to sign out.");
+                  });
+              }}
+            >
+              Sign Out
+            </button>
+          </li>
+        )}
       </ul>
     </div>
   );

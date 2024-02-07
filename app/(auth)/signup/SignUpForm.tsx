@@ -6,9 +6,13 @@ import React, { useState } from "react";
 import CustomButton from "@/app/_components/ui/CustomButton";
 import CustomInput from "@/app/_components/ui/CustomInput";
 import axios from "axios";
+import toast from "react-hot-toast";
+import useLoading from "@/app/_hooks/useLoading";
+import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
-  const [loading, setLoading] = useState(false);
+  const { setLoading } = useLoading();
+  const router = useRouter();
 
   const {
     register,
@@ -22,11 +26,12 @@ const SignUpForm = () => {
     axios
       .post("/api/auth/signup", data)
       .then((user) => {
-        console.log(user);
-        console.log("Registered.");
+        router.push("/signin");
+        toast.success("registered.");
       })
       .catch((err) => {
         console.log(err);
+        toast.error("failed to register.");
       })
       .finally(() => {
         setLoading(false);
@@ -88,12 +93,7 @@ const SignUpForm = () => {
         placeholder="Re-enter password"
       />
       <div className="w-full">
-        <CustomButton
-          label="Sign Up"
-          onClick={handleSubmit(onSubmit)}
-          disabled={loading}
-          full
-        />
+        <CustomButton label="Sign Up" onClick={handleSubmit(onSubmit)} full />
       </div>
     </div>
   );

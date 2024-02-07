@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import React from "react";
 
 interface CustomButtonProps {
-  label: string;
+  label?: string;
   icon?: IconType;
   outline?: boolean;
   full?: boolean;

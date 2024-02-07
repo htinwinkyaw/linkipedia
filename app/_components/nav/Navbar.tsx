@@ -3,8 +3,11 @@ import NavItems from "./NavItems";
 import NavUser from "./NavUser";
 import React from "react";
 import ThemeController from "./ThemeController";
+import userServices from "@/app/_services/userServices";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const currentUser = await userServices.getCurrentUser();
+
   return (
     <nav className="navbar bg-base-100">
       <div className="flex-1">
@@ -20,7 +23,7 @@ const Navbar = () => {
           <ThemeController />
         </div>
         <div>
-          <NavUser />
+          <NavUser user={currentUser} />
         </div>
       </div>
     </nav>
