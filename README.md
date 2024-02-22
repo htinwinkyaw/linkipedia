@@ -14,7 +14,7 @@
 
 ### Installation
 `
-  git clone https://github.com/htinwinkyaw/linkipedia.git
-  cd linkipedia
+  git clone https://github.com/htinwinkyaw/linkipedia.git<br>
+  cd linkipedia<br>
   npm install
 `
