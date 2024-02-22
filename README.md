@@ -1,5 +1,5 @@
 ## linkipedia
-**linkipedia** is a place to collect the users' social links and share with others with ease.
+***linkipedia*** is a place to collect the users' social links and share with others with ease.
 
 ---
 
