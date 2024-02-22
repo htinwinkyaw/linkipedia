@@ -13,8 +13,8 @@
 ---
 
 ### Installation
-`
-  git clone https://github.com/htinwinkyaw/linkipedia.git<br>
-  cd linkipedia<br>
+```
+  git clone https://github.com/htinwinkyaw/linkipedia.git
+  cd linkipedia
   npm install
-`
+```
